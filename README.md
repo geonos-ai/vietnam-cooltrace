@@ -1,25 +1,38 @@
-# GEONOS Infrastructure — COOL:TRACE
+# GEONOS Vietnam — COOL:TRACE Cooling Intelligence
 
-> **Trace the evidence. Prioritize cooling action. Prove what changed.**
+> **Turn cooling data into verified climate action.**
 
-COOL:TRACE is a static, interactive demonstration of an evidence-first operating workflow for climate-resilient cooling portfolios in Vietnam. It connects deterministic demonstration records with public climate and policy context to show how facility teams could prioritize cooling actions, test capital constraints, and preserve measurement-and-verification boundaries.
+COOL:TRACE is an evidence-first cooling intelligence service from GEONOS Vietnam. This static corporate site introduces the service, its Vietnam climate context, and an interactive demonstration of the workflow used to screen cooling portfolios, prioritize action, test capital and climate constraints, and prepare measurement and verification.
 
 ## Live Site
 
-After the repository is published and GitHub Pages is enabled, the site will be available at:
-
 <https://geonos-ai.github.io/vietnam-cooltrace/>
 
-## Demonstrated Capabilities
+The site uses client-side hash routes so each section works from a GitHub Pages project URL without server-side routing:
 
-- portfolio and facility-level cooling action views;
-- source-linked evidence and explicit claim states;
-- deterministic capital optimization across five comparable actions;
-- bounded heat-sensitivity testing;
-- a metadata-only data-intake preview; and
-- access to a pre-generated public competition dossier.
+- Home: `#/`
+- Services: `#/services`
+- COOL:TRACE portfolio: `#/cooltrace/portfolio`
+- COOL:TRACE assets: `#/cooltrace/assets`
+- COOL:TRACE capital plan: `#/cooltrace/capital`
+- COOL:TRACE climate stress: `#/cooltrace/climate`
+- Vietnam Insights: `#/insights`
+- About: `#/about`
 
-The current release does not process document contents, run an AI or machine-learning model, persist customer data, diagnose refrigerant leaks, or claim verified emissions reductions. Facility records are reproducible demonstration scenarios, not customer or pilot measurements.
+## Services and Demonstration
+
+The site presents four connected services:
+
+- cooling portfolio screening;
+- action and capital planning;
+- climate stress assessment; and
+- measurement and verification.
+
+The COOL:TRACE demonstration includes facility and asset selection, an evidence-linked action view, deterministic capital optimization across five comparable actions, a bounded heat-sensitivity test, a metadata-only local data-intake preview, and access to the public competition dossier.
+
+## Evidence Boundary
+
+The interface uses reproducible demonstration facility records and source-linked public climate and policy data. It does not represent customer or pilot measurements and does not claim verified emissions reductions. The current release does not process document contents, run an AI or machine-learning model, persist customer data, or diagnose refrigerant leaks.
 
 ## Local Development
 
@@ -28,7 +41,7 @@ npm ci
 npm run dev
 ```
 
-Validation:
+Run the production and code checks with:
 
 ```bash
 npm test
@@ -38,15 +51,15 @@ npm run lint
 ## Publish with GitHub Desktop
 
 1. Add this folder as a local repository in GitHub Desktop.
-2. Commit all files to the `main` branch.
+2. Commit the files to the `main` branch.
 3. Select **Publish repository**.
 4. Use owner `geonos-ai` and repository name `vietnam-cooltrace`.
 5. Make the repository public, then publish it.
 6. On GitHub, open **Settings → Pages** and choose **GitHub Actions** as the source.
 7. The included workflow builds and deploys the site after every push to `main`.
 
-The production base path is derived automatically from the GitHub repository name, so compiled assets and the public dossier work correctly from a project Pages URL.
+The production base path is derived automatically from the GitHub repository name. Compiled assets, hash routes, and the public dossier therefore work from the project Pages URL.
 
-## Public Evidence Boundary
+## Public Repository Scope
 
-This repository intentionally contains only the public website source and public review assets. Internal application answers, partner outreach drafts, budgets, workroom archives, and owner-confirmation materials are excluded from this deployment repository.
+This repository contains only the public website source and public review assets. Internal application answers, partner outreach drafts, budgets, workroom archives, and owner-confirmation materials are excluded.

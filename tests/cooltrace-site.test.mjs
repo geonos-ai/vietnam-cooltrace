@@ -10,24 +10,45 @@ async function compiledJavaScript() {
   return (await Promise.all(scripts.map((file) => readFile(new URL(file, assetsDirectory), "utf8")))).join("\n");
 }
 
-test("builds the COOL:TRACE GitHub Pages experience", async () => {
+test("builds the GEONOS Vietnam corporate site for GitHub Pages", async () => {
   const html = await readFile(new URL("../dist/index.html", import.meta.url), "utf8");
   const bundle = await compiledJavaScript();
-  assert.match(html, /<title>GEONOS Infrastructure \| COOL:TRACE/);
+  assert.match(html, /<title>GEONOS Vietnam \| COOL:TRACE Cooling Intelligence<\/title>/);
+  assert.match(
+    html,
+    /GEONOS Vietnam helps facility and portfolio teams prioritize cooling action through COOL:TRACE, an evidence-first cooling intelligence service\./,
+  );
+  assert.match(html, /og:title" content="GEONOS Vietnam \| COOL:TRACE Cooling Intelligence"/);
   assert.match(html, /https:\/\/geonos-ai\.github\.io\/vietnam-cooltrace\/og\.png/);
   assert.match(html, /src="\/vietnam-cooltrace\/assets\//);
-  assert.match(bundle, /Portfolio command center/);
-  assert.match(bundle, /Fix the cooling assets that matter first/);
-  assert.match(bundle, /Evidence-ranked asset queue/);
-  assert.match(bundle, /One budget\. Two defensible decisions/);
-  assert.match(bundle, /Push one asset into a hotter operating envelope/);
+
+  assert.match(bundle, /GEONOS Vietnam/);
+  assert.match(bundle, /A GEONOS Vietnam service/);
+  assert.match(bundle, /Turn cooling data into verified climate action\./);
+  assert.match(bundle, /#\/services/);
+  assert.match(bundle, /#\/cooltrace\/portfolio/);
+  assert.match(bundle, /#\/cooltrace\/assets/);
+  assert.match(bundle, /#\/cooltrace\/capital/);
+  assert.match(bundle, /#\/cooltrace\/climate/);
+  assert.match(bundle, /#\/insights/);
+  assert.match(bundle, /#\/about/);
+  assert.match(bundle, /Cooling portfolio screening/);
+  assert.match(bundle, /Action and capital planning/);
+  assert.match(bundle, /Climate stress assessment/);
+  assert.match(bundle, /Measurement and verification/);
+  assert.match(bundle, /Demonstration data · No verified emissions reductions are claimed/);
+  assert.match(bundle, /Demo dataset · August 21, 2026/);
+  assert.doesNotMatch(bundle, /GEONOS Infrastructure/);
+});
+
+test("preserves the COOL:TRACE interactive demonstration and evidence boundaries", async () => {
+  const bundle = await compiledJavaScript();
+
   assert.match(bundle, /NASA POWER/);
   assert.match(bundle, /175\.717/);
-  assert.match(bundle, /Screened climate opportunity/);
   assert.match(bundle, /CT-008/);
   assert.match(bundle, /No customer, partner, field result or verified abatement is claimed/i);
   assert.match(bundle, /Preview data intake/);
-  assert.match(bundle, /Trace the evidence\. Prioritize cooling action\. Prove what changed\./);
   assert.match(bundle, /Two anchors first; conditional expansion to six/i);
   assert.match(bundle, /current evidence is closest to TRL 4/i);
   assert.match(bundle, /portfolio contracts covering.*3 pilot facilities/i);
